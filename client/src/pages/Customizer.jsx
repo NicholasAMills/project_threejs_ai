@@ -52,7 +52,7 @@ const Customizer = () => {
       // call our backend to generate an ai image!
       setGeneratingImg(true); 
 
-      const response = await fetch('http://localhost:8080/api/v1/dalle', {
+      const response = await fetch('https://project-threejs-ai-m43b.onrender.com/api/v1/dalle', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -67,7 +67,8 @@ const Customizer = () => {
       handleDecals(type, `data:image/png;base64,${data.photo}`)
     }
     catch (error) {
-      alert(error.message)
+      console.log(error);
+      alert(error.message);
     }
     finally {
       setGeneratingImg(false);
